@@ -1,0 +1,252 @@
+:root {
+  --dark-color: #8d6e63;
+  --light-color: #efebe9;
+  --transition: 0.4s;
+  --border-radius: 5px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--light-color);
+}
+
+.button {
+  background-color: var(--dark-color);
+  color: white;
+  font-size: 17px;
+  border-radius: var(--border-radius);
+  padding: 8px 10px;
+  cursor: pointer;
+  border: 1px solid var(--dark-color);
+  transition: var(--transition);
+  min-width: 50px;
+}
+
+.button:hover {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+input:focus {
+  outline: none;
+}
+
+.form {
+  width: 80%;
+  margin: 20px auto;
+  background-color: white;
+  border: 1px solid var(--dark-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+}
+
+.form .input-task {
+  width: 100%;
+  padding: 15px;
+  caret-color: var(--dark-color);
+  border: 1px solid var(--light-color);
+  border-radius: var(--border-radius);
+  font-size: 18px;
+}
+
+.form .add {
+  margin: 20px auto 0;
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .form {
+    width: 95%;
+  }
+}
+
+.container {
+  margin: 0 auto 20px;
+  width: 98%;
+  border: 1px solid var(--dark-color);
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 20px;
+}
+
+.container .title {
+  color: var(--dark-color);
+  text-align: center;
+}
+
+.container .tasks {
+  margin: 50px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.container .tasks .task {
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px var(--dark-color);
+}
+
+.container .tasks .task .text {
+  padding: 15px;
+  height: calc(100% - 50px);
+}
+
+.container .tasks .task .text p {
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+.container .tasks .task .icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-top: 2px solid var(--dark-color);
+  height: 50px;
+}
+
+.container .tasks .task .icons div {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.container .tasks .task .icons div:hover {
+  background-color: var(--dark-color);
+  color: white;
+  transition: var(--transition);
+}
+
+.container .tasks .task .icons div:hover::before {
+  content: attr(data-info);
+  position: absolute;
+  width: 100px;
+  background-color: var(--dark-color);
+  color: white;
+  padding: 4px 0;
+  text-align: center;
+  top: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+}
+
+.container .tasks .task .icons div:hover::after {
+  content: "";
+  position: absolute;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent var(--dark-color);
+  left: 50%;
+  transform: translateX(-50%);
+  top: 33px;
+}
+
+.container .tasks .task .icons div svg {
+  font-size: 18px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container .all {
+  display: none;
+  margin: auto;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: -100%;
+  background-color: rgb(0 0 0 / 0.4);
+  position: fixed;
+  z-index: 100;
+  overflow: auto;
+  transition: var(--transition);
+}
+
+.modal .content {
+  background-color: white;
+  width: 500px;
+  height: 130px;
+  padding: 25px;
+  border-radius: var(--border-radius);
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 767px) {
+  .modal .content {
+    width: 95%;
+  }
+}
+
+.modal .content p {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.modal .content .yes {
+  float: right;
+}
+
+.modal .content .no {
+  float: right;
+  margin-right: 20px;
+}
+
+.modal .content input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--dark-color);
+  caret-color: var(--dark-color);
+  font-size: 16px;
+}
+
+.container .tasks .task.done {
+  position: relative;
+}
+
+.container .tasks .task.done::before {
+  content: "";
+  position: absolute;
+  background-color: rgb(249 245 245 / 80%);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.container .tasks .task.done::after {
+  content: "\f14a";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: var(--dark-color);
+}
+
+.container .tasks .task.done .icons svg {
+  opacity: 0.4;
+}

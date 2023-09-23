@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do App</title>
+
+    <link rel="stylesheet" href="css/all.min.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="form">
+      <input type="text" placeholder="Add Task" class="input-task" />
+      <button class="add button">Add Task</button>
+    </div>
+
+    <div class="container">
+      <h1 class="title">List Todo</h1>
+      <div class="tasks"></div>
+      <button class="all button">Delete All Tasks</button>
+    </div>
+
+    <div id="delete-modal" class="modal">
+      <div class="content">
+        <p>Do You Want To Delete This Task ?</p>
+        <button class="yes button">Yes</button>
+        <button class="no button">No</button>
+      </div>
+    </div>
+
+    <div id="update-modal" class="modal">
+      <div class="content">
+        <input type="text" placeholder="Enter Text" class="update-field" />
+        <button class="yes button">Update</button>
+        <button class="no button">Cancel</button>
+      </div>
+    </div>
+
+    <div id="delete-all-modal" class="modal">
+      <div class="content">
+        <p>Do You Want To Delete All Tasks ?</p>
+        <button class="yes button">Yes</button>
+        <button class="no button">No</button>
+      </div>
+    </div>
+
+    <script src="js/all.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
